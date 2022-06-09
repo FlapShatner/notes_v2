@@ -1,0 +1,9 @@
+.note{
+    
+    border: 1px solid var(--color-grey-300);
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 0 10px ;
+    min-width: 300px;
+    list-style: none;
+}

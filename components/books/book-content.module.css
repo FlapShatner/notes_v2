@@ -1,0 +1,26 @@
+
+
+.notebook h2{    
+    padding:8px; 
+}
+
+.notebook header {
+    background-color: var(--color-grey-500);
+    display: flex;
+    flex-direction: row;       
+}
+
+.notebook div{
+    display: flex;
+    flex-direction: row;    
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+}
+
+
+.notes{
+    display: flex;
+    flex-direction: row;
+    
+}

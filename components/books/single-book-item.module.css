@@ -1,0 +1,12 @@
+.bookItem{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.bookItem p {
+    text-align: end;
+}
