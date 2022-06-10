@@ -1,17 +1,16 @@
 import { MongoClient } from 'mongodb'
 
 export async function connectDb() {
-  const client = await MongoClient.connect(process.env.MONGO_URI)
+  const client = await MongoClient.connect(process.env.MONGODB_URI)
   return client
 }
 
 export async function getUserBooks() {
   // search by userId
-
   const client = await connectDb()
-  const db = client.db('nesting')
+  const db = client.db()
 
-  const booksArr = await db.collection('notebooks').find().toArray()
+  const booksArr = await db.collection('books').find().toArray()
   //   console.log(booksArr)
 
   return booksArr
@@ -19,9 +18,9 @@ export async function getUserBooks() {
 
 export async function getBook(id) {
   const client = await connectDb()
-  const db = client.db('nesting')
+  const db = client.db()
 
-  const book = await db.collection('notebooks').findOne({ bid: id })
+  const book = await db.collection('books').findOne({ bid: id })
   //   console.log(id)
   return book
 }

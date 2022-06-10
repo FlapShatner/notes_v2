@@ -1,0 +1,22 @@
+.create{
+    width: 100%;
+    margin: 0 auto;
+    text-align: start;
+}
+.control{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.control label {
+    display: block;
+    margin-bottom: 0.25rem;
+    text-align: start;
+}
+
+.create form{
+    padding: 1rem 0.5rem;
+    border: 1px solid var(--color-grey-300);
+    border-radius: 5px;
+}
