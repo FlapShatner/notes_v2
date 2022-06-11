@@ -22,7 +22,7 @@ export default function CreateBook() {
       const book = await response.json()
       console.log(book)
     } else {
-      console.log('error')
+      console.log(response)
     }
   }
 
