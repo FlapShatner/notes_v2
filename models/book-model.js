@@ -1,7 +1,7 @@
 import { Schema, model, models } from 'mongoose'
 
 const notesSchema = new Schema({
-  title: {
+  noteTitle: {
     type: String,
     default: '',
   },

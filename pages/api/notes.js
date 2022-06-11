@@ -7,9 +7,9 @@ export default async function handler(req, res) {
     try {
       await connectDb()
 
-      const { title, content, bid } = req.body
+      const { noteTitle, content, bid } = req.body
       const note = new Note({
-        title: title,
+        noteTitle: noteTitle,
         content: content,
       })
 

@@ -2,42 +2,29 @@ import classes from './create-note-item.module.css'
 import { useState } from 'react'
 
 export default function CreateNoteItem(props) {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
+  const [formData, setFormData] = useState({})
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
   const bid = props.bid
 
-  async function handleSubmit(e) {
+  function passFormdata(e) {
     e.preventDefault()
-    //submit note to api
-    const response = await fetch('http://localhost:3000/api/notes', {
-      method: 'POST',
-      body: JSON.stringify({
-        title: title,
-        content: content,
-        bid: bid,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    if (response.ok) {
-      const note = await response.json()
-      console.log(note)
-    } else {
-      console.log(response)
-    }
+    props.handleSubmit(formData)
   }
 
   return (
     <section className={classes.create}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={passFormdata}>
         <div className={classes.control}>
           <input
             type='text'
-            name='title'
-            id='title'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            name='noteTitle'
+            id='noteTitle'
+            value={formData.noteTitle}
+            onChange={onChange}
             placeholder='title'
           />
         </div>
@@ -46,8 +33,8 @@ export default function CreateNoteItem(props) {
             type='text'
             name='content'
             id='content'
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
+            value={formData.content}
+            onChange={onChange}
             placeholder='note'
           />
         </div>
