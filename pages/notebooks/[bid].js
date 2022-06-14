@@ -16,7 +16,7 @@ export default function Notebook(props) {
 export async function getStaticProps(ctx) {
   const data = await getBook(ctx.params.bid)
   const book = JSON.stringify(data)
-  console.log(book)
+  // console.log(book)
 
   return {
     props: {

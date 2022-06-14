@@ -1,6 +1,5 @@
-import { getUserBooks } from '../../helpers/db'
-import connectDb from '../../helpers/dbConnect'
-import { Book, Note } from '../../models/book-model'
+import connectDb from '../../../helpers/dbConnect'
+import { Book, Note } from '../../../models/book-model'
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
