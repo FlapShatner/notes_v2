@@ -1,11 +1,14 @@
 import connectDb from '../../helpers/dbConnect'
-import { Note, Book } from '../../models/book-model'
+import { Book } from '../../models/book-model'
 import { v4 as uuidv4 } from 'uuid'
+import { getSession } from 'next-auth/react'
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       await connectDb()
+      const session = await getSession({ req: req })
+      const userId = session.user.email
 
       const { title, content } = req.body
       const book = new Book({
@@ -13,6 +16,7 @@ export default async function handler(req, res) {
         content: content,
         notes: [],
         bid: uuidv4(),
+        userId: userId,
       })
 
       const response = await book.save()

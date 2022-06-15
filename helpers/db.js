@@ -5,12 +5,13 @@ export async function connectDb() {
   return client
 }
 
-export async function getUserBooks() {
+export async function getUserBooks(userId) {
   // search by userId
+  // console.log(userId)
   const client = await connectDb()
   const db = client.db()
 
-  const booksArr = await db.collection('books').find().toArray()
+  const booksArr = await db.collection('books').find({ userId: userId }).toArray()
   //   console.log(booksArr)
 
   return booksArr

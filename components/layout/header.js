@@ -1,8 +1,13 @@
 import classes from './header.module.css'
 import Link from 'next/link'
 import Logo from './logo'
+import { signOut } from 'next-auth/react'
 
 export default function Header() {
+  function handleLogout() {
+    signOut()
+  }
+
   return (
     <header className={classes.header}>
       <Link href='/'>
@@ -16,7 +21,7 @@ export default function Header() {
             <Link href='/profile'>Profile</Link>
           </li>
           <li>
-            <button>Logout</button>
+            <button onClick={handleLogout}>Logout</button>
           </li>
         </ul>
       </nav>
