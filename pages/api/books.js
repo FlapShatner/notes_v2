@@ -10,10 +10,10 @@ export default async function handler(req, res) {
       const session = await getSession({ req: req })
       const userId = session.user.email
 
-      const { title, content } = req.body
+      const { title, description } = req.body
       const book = new Book({
         title: title,
-        content: content,
+        description: description,
         notes: [],
         bid: uuidv4(),
         userId: userId,

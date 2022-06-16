@@ -12,6 +12,7 @@ export default function Header() {
     <header className={classes.header}>
       <Link href='/'>
         <a>
+          {/* <p></p> */}
           <Logo />
         </a>
       </Link>

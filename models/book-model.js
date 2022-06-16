@@ -13,6 +13,7 @@ const notesSchema = new Schema({
 
 const bookSchema = new Schema({
   title: String,
+  description: String,
   bid: String,
   userId: {
     type: String,

@@ -8,7 +8,7 @@ export default function NotesSpace(props) {
   const [booksArray, setBooksArray] = useState(books)
 
   async function handleSubmit(formData) {
-    const response = await fetch('http://localhost:3000/api/books', {
+    const response = await fetch('/api/books', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
@@ -29,7 +29,13 @@ export default function NotesSpace(props) {
       <CreateBook handleSubmit={handleSubmit} />
       <ul>
         {booksArray.map((book) => (
-          <SingleBook key={book._id} id={book.bid} title={book.title} notes={book.notes.length} />
+          <SingleBook
+            key={book._id}
+            desc={book.description}
+            id={book.bid}
+            title={book.title}
+            notes={book.notes.length}
+          />
         ))}
       </ul>
     </section>

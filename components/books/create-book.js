@@ -23,8 +23,8 @@ export default function CreateBook(props) {
           <input type='text' name='title' id='title' value={formData.title} onChange={onChange} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='desc'>Description</label>
-          <input type='text' name='description' id='desc' value={formData.description} onChange={onChange} />
+          <label htmlFor='description'>Description</label>
+          <input type='text' name='description' id='description' value={formData.description} onChange={onChange} />
         </div>
         <button type='submit'>Create</button>
       </form>

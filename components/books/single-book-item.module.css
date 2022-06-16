@@ -10,3 +10,9 @@
 .bookItem p {
     text-align: end;
 }
+
+.bookItem div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

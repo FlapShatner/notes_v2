@@ -30,6 +30,7 @@ export async function getServerSideProps(context) {
     }
   }
   const userId = session.user.email
+  // console.log(session.user)
 
   const objBooks = await getUserBooks(userId)
   const userBooks = JSON.stringify(objBooks)
