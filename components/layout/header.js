@@ -2,8 +2,16 @@ import classes from './header.module.css'
 import Link from 'next/link'
 import Logo from './logo'
 import { signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 export default function Header() {
+  const { data: session } = useSession()
+
+  // console.log(session.user.name)
+  let userName
+  if (session) {
+    userName = session.user.name
+  }
   function handleLogout() {
     signOut()
   }
@@ -12,7 +20,7 @@ export default function Header() {
     <header className={classes.header}>
       <Link href='/'>
         <a>
-          {/* <p></p> */}
+          <p>{session && `${userName} 's`}</p>
           <Logo />
         </a>
       </Link>

@@ -12,7 +12,7 @@ async function handler(req, res) {
 
     const db = client.db()
 
-    const profile = await db.collection('users').findOne({ email: email })
+    const profile = await db.collection('users').findOne({ email: userId })
 
     if (!profile) {
       res.status(422).json({ message: 'User does not exist' })

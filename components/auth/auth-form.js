@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import classes from './auth-form.module.css'
 
 async function createUser(email, password) {
   const response = await fetch('/api/auth/signup', {
@@ -75,7 +76,7 @@ export default function AuthForm() {
   }
 
   return (
-    <section>
+    <section className={classes.authForm}>
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
       <form onSubmit={handleSubmit}>
         <input type='email' id='email' required ref={emailRef} placeholder='Email Address' />

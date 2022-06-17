@@ -55,21 +55,7 @@ export default function Profile(props) {
           )}
         </div>
         <div>
-          {isEdit ? (
-            <>
-              <label htmlFor='email'>Email:</label>
-
-              {/* get email from props */}
-              <input
-                id='email'
-                placeholder={userEmail}
-                value={formData.email}
-                name='email'
-                onChange={handleChange}></input>
-            </>
-          ) : (
-            <p>{userEmail}</p>
-          )}
+          <p>{userEmail}</p>
         </div>
         {isEdit ? (
           <button type='submit'>Submit</button>
@@ -88,7 +74,7 @@ export default function Profile(props) {
 
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req })
-  console.log(session)
+  //   console.log(session)
 
   if (!session) {
     return {
