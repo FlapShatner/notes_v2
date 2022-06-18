@@ -5,13 +5,10 @@ import { signOut } from 'next-auth/react'
 import { useSession } from 'next-auth/react'
 
 export default function Header() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
-  // console.log(session.user.name)
-  let userName
-  if (session) {
-    userName = session.user.name
-  }
+  const userName = session?.user?.name
+
   function handleLogout() {
     signOut()
   }
@@ -20,7 +17,7 @@ export default function Header() {
     <header className={classes.header}>
       <Link href='/'>
         <a>
-          <p>{session && `${userName} 's`}</p>
+          {userName && <p>{`${userName}'s`}</p>}
           <Logo />
         </a>
       </Link>
@@ -29,9 +26,11 @@ export default function Header() {
           <li>
             <Link href='/profile'>Profile</Link>
           </li>
-          <li>
-            <button onClick={handleLogout}>Logout</button>
-          </li>
+          {session && (
+            <li>
+              <button onClick={handleLogout}>Logout</button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

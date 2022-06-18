@@ -15,9 +15,18 @@ async function createUser(email, password) {
 
   if (!response.ok) {
     console.log(data.message || 'Something went wrong')
+    return
   }
+  const result = await loginUser(email, password)
+}
 
-  return data
+async function loginUser(email, password) {
+  const result = await signIn('credentials', {
+    redirect: false,
+    email: email,
+    password: password,
+  })
+  return result
 }
 
 export default function AuthForm() {
@@ -39,11 +48,8 @@ export default function AuthForm() {
     const password2Input = password2Ref.current?.value
 
     if (isLogin) {
-      const result = await signIn('credentials', {
-        redirect: false,
-        email: emailInput,
-        password: passwordInput,
-      })
+      const result = await loginUser(emailInput, passwordInput)
+
       if (!result.error) {
         router.replace('/')
       }
@@ -57,6 +63,7 @@ export default function AuthForm() {
           emailRef.current.value = ''
           passwordRef.current.value = ''
           password2Ref.current.value = ''
+          router.replace('/')
         } catch (error) {
           console.log(error)
         }
@@ -77,27 +84,29 @@ export default function AuthForm() {
 
   return (
     <section className={classes.authForm}>
-      <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
-      <form onSubmit={handleSubmit}>
-        <input type='email' id='email' required ref={emailRef} placeholder='Email Address' />
-        <div>
-          <input type='password' id='password' required ref={passwordRef} placeholder='Password' />
-          {!isLogin && (
-            <input type='password' id='password2' required ref={password2Ref} placeholder='Confirm Password' />
-          )}
-        </div>
-        <div>
-          <button type='submit'>{isLogin ? 'Login' : 'Create Account'}</button>
-          <p>or</p>
-          <button type='button' onClick={toggleAuth}>
-            {isLogin ? 'Create new account' : 'Login with existing account'}
-          </button>
-          <p>or</p>
-          <button type='button' onClick={guestLogin}>
-            Try as guest
-          </button>
-        </div>
-      </form>
+      <main>
+        <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
+        <form onSubmit={handleSubmit}>
+          <div className={classes.control}>
+            <input type='email' id='email' required ref={emailRef} placeholder='Email Address' />
+          </div>
+          <div className={classes.control}>
+            <input type='password' id='password' required ref={passwordRef} placeholder='Password' />
+            {!isLogin && (
+              <input type='password' id='password2' required ref={password2Ref} placeholder='Confirm Password' />
+            )}
+          </div>
+          <div className={classes.actions}>
+            <button type='submit'>{isLogin ? 'Login' : 'Create Account'}</button>
+            <p>or</p>
+            <button type='button' onClick={toggleAuth}>
+              {isLogin ? 'Create new account' : 'Login with existing account'}
+            </button>
+
+            <a onClick={guestLogin}>Try as guest</a>
+          </div>
+        </form>
+      </main>
     </section>
   )
 }

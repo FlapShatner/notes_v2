@@ -1,10 +1,22 @@
 import { getBook, getPaths } from '../../helpers/db'
 import { Fragment } from 'react'
 import BookContent from '../../components/books/book-content'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 export default function Notebook(props) {
+  const router = useRouter()
   const { book } = props
   const bookData = JSON.parse(book)
+  const { data: session, status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push('/auth')
+    },
+  })
+  if (status === 'loading') {
+    return <div>Loading...</div>
+  }
 
   return (
     <Fragment>

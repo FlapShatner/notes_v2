@@ -20,7 +20,7 @@ async function handler(req, res) {
       return
     }
 
-    const result = await db.collection('users').updateOne({ email: userId }, { $set: { name: name, email: email } })
+    const result = await db.collection('users').updateOne({ email: userId }, { $set: { name: name } })
 
     if (!result.acknowledged) {
       res.status(500).json({ message: 'Error updating profile' })

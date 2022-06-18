@@ -13,6 +13,10 @@ export default function CreateBook(props) {
   async function handleSubmit(e) {
     e.preventDefault()
     props.handleSubmit(formData)
+    setFormData({
+      title: '',
+      description: '',
+    })
   }
 
   return (

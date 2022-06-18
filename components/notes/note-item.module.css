@@ -1,14 +1,12 @@
 .note{
-    max-height: 150px;
+    max-height: 145px;
     border: 1px solid var(--color-grey-300);
     border-radius: 5px;    
     padding: 0 10px ;     
-    list-style: none;
-    display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
+    list-style: none;   
   overflow: hidden;
   margin: 5px 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .head{
@@ -22,12 +20,8 @@
   cursor: pointer;
 }
 
-.isActive{
-    margin: 5px 0;    
+.isActive{    
     overflow-wrap: break-word;
     max-height: max-content;    
-    border: 1px solid var(--color-grey-300);
-    border-radius: 5px;    
-    padding: 0 10px ;     
-    list-style: none;
+ 
 }

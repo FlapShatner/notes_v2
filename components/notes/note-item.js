@@ -21,12 +21,13 @@ export default function NoteItem(props) {
     setShowModal(true)
   }
 
-  function handleClick() {
-    setActive((active) => !active)
+  function handleClick(e) {
+    // setActive((active) => !active)
+    e.currentTarget.classList.toggle(classes.isActive)
   }
 
   return (
-    <li onClick={handleClick} className={active ? classes.isActive : classes.note}>
+    <li onClick={handleClick} className={classes.note}>
       <div className={classes.head}>
         <h3>{noteTitle}</h3>
         <button onClick={openModal}>Delete</button>

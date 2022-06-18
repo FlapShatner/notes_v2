@@ -22,6 +22,9 @@ body {
   --size-20: 5rem;
   --size-40: 10rem;
 
+  --border-radius-1: 0.3rem;
+  --border-radius-2: 0.6rem;
+
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

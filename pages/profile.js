@@ -29,6 +29,7 @@ export default function Profile(props) {
     })
     if (response.ok) {
       setDisplayName(formData.name)
+
       setIsEdit(false)
     }
     const res = await response.json()
