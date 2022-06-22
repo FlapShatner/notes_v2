@@ -1,0 +1,29 @@
+.dialog h2{
+    text-align: center;
+    color:#fff;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions button{
+    padding: 0.25rem 1rem;
+    border-radius: 0;
+    background-color: hsl(357.87,100%,61.37%);    
+}
+
+button.del{
+    border-top:1px solid hsl(357.72,100%,30.98%);
+    border-right:1px solid hsl(357.72,100%,30.98%);
+    border-top-right-radius: var(--border-radius-2);
+    border-bottom-left-radius: var(--border-radius-2);
+}
+
+button.cancel{
+    border-top:1px solid hsl(357.72,100%,30.98%);
+    border-left:1px solid hsl(357.72,100%,30.98%);
+    border-top-left-radius: var(--border-radius-2);
+    border-bottom-right-radius: var(--border-radius-2);
+}

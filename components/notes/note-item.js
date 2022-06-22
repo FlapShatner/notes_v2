@@ -4,12 +4,12 @@ import Modal from '../modal/modal'
 import DeleteConfirm from '../modal/delete-confirm'
 
 export default function NoteItem(props) {
-  const { noteTitle, content, bid, _id } = props
+  const { noteTitle, content, bid, nid, _id } = props
 
-  const [active, setActive] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const noteIdent = {
+    nid: nid,
     _id: _id,
     bid: bid,
   }
@@ -22,7 +22,6 @@ export default function NoteItem(props) {
   }
 
   function handleClick(e) {
-    // setActive((active) => !active)
     e.currentTarget.classList.toggle(classes.isActive)
   }
 
@@ -35,7 +34,7 @@ export default function NoteItem(props) {
 
       <p>{content}</p>
       <Modal onClose={() => setShowModal(false)} show={showModal}>
-        <DeleteConfirm onDelete={handleDelete} />
+        <DeleteConfirm onDelete={handleDelete} onCancel={() => setShowModal(false)} />
       </Modal>
     </li>
   )

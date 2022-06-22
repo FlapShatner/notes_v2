@@ -13,10 +13,33 @@
     display: block;
     margin-bottom: 0.25rem;
     text-align: start;
+    color:var(--color-dark-text)
+   
 }
 
+.control input {
+    display: block;
+    width: 100%;    
+    margin-bottom: 0.5rem;   
+    
+}
+
+
+
 .create form{
-    padding: 1rem 0.5rem;
-    border: 1px solid var(--color-grey-300);
-    border-radius: 5px;
+    padding: 1rem 1rem;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--border-radius-1);
+    background-color: var(--color-create-bg);
+    
+}
+
+.create button{
+    width: 25%;
+    border: none;
+    border-radius: var(--border-radius-1);
+   
+    padding: 0.25rem;
+    /* text-align: start; */
+
 }

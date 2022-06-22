@@ -26,11 +26,11 @@ export default function BookContent(props) {
   // call delete function in helpers/noteActions.js
 
   async function deleteNote(noteId) {
-    const { _id } = noteId
+    const { nid } = noteId
     const response = await delNote(noteId)
     if (response.ok) {
-      setNotesArray(notesArray.filter((note) => note._id !== _id))
-      console.log(`note ${_id} deleted`)
+      setNotesArray(notesArray.filter((note) => note.nid !== nid))
+      console.log(`note ${nid} deleted`)
     } else {
       console.log('error deleting note')
     }
@@ -38,10 +38,10 @@ export default function BookContent(props) {
 
   return (
     <section className={classes.notebook}>
+      <Link href='/'>
+        <button>Back</button>
+      </Link>
       <header>
-        <Link href='/'>
-          <button>Back</button>
-        </Link>
         <div>
           <h2>{title}</h2>
         </div>
@@ -56,6 +56,7 @@ export default function BookContent(props) {
             noteTitle={note.noteTitle}
             content={note.content}
             _id={note._id}
+            nid={note.nid}
             key={note._id || uuidv4()}
           />
         ))}

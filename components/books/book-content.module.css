@@ -1,19 +1,34 @@
 .notebook{
     max-width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.notebook h2{    
-   padding: 5px
+.notebook button{
+    width: 90px;
+    height: 30px;
+    margin-bottom:10px;
+    
 }
 
-.notebook header {
-    background-color: var(--color-grey-500);
+.notebook h2{    
+   padding: 0;
+   margin:15px;
+   color:var(--color-primary-text);
+}
+
+.notebook header {    
+    border: 1px solid var(--color-accent);
+    border-radius: var(--border-radius-2);
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;  
+    background:hsla(133.33,13.43%,73.73%,.4);
     display: flex;
-    flex-direction: row;       
+    flex-direction: row;
+          
 }
 
 .notebook div{

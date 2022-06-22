@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { getSession } from 'next-auth/react'
-import { connectDb } from '../helpers/db'
+import { connectDb } from '../../helpers/db'
+import classes from './profile.module.css'
 
 export default function Profile(props) {
   const [isEdit, setIsEdit] = useState(false)
@@ -42,33 +43,44 @@ export default function Profile(props) {
   }
 
   return (
-    <section>
-      <h2>Your Info</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <section className={classes.profile}>
+      <div className={classes.card}>
+        <h2>Your Info</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            {isEdit ? (
+              <>
+                <input
+                  id='name'
+                  placeholder='What should we call you?'
+                  value={formData.name}
+                  name='name'
+                  onChange={handleChange}></input>
+              </>
+            ) : (
+              <p>{displayName || 'Edit to set your name'}</p>
+            )}
+          </div>
+          <div>
+            <p>{userEmail}</p>
+          </div>
+
           {isEdit ? (
             <>
-              <label htmlFor='name'>Name:</label>
-              <input id='name' placeholder={userName} value={formData.name} name='name' onChange={handleChange}></input>
+              <button className={classes.left} type='submit'>
+                Submit
+              </button>
+              <button className={classes.right} type='button' onClick={() => setIsEdit(false)}>
+                Cancel
+              </button>
             </>
           ) : (
-            <p>{displayName || 'Edit to set your name'}</p>
+            <button className={classes.edit} type='button' onClick={toggleEdit}>
+              Edit
+            </button>
           )}
-        </div>
-        <div>
-          <p>{userEmail}</p>
-        </div>
-        {isEdit ? (
-          <button type='submit'>Submit</button>
-        ) : (
-          <button type='button' onClick={toggleEdit}>
-            Edit
-          </button>
-        )}
-        <button type='button' onClick={() => setIsEdit(false)}>
-          Cancel
-        </button>
-      </form>
+        </form>
+      </div>
     </section>
   )
 }

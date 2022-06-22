@@ -9,6 +9,10 @@ const notesSchema = new Schema({
     type: String,
     default: '',
   },
+  nid: {
+    type: String,
+    default: '',
+  },
 })
 
 const bookSchema = new Schema({

@@ -1,12 +1,12 @@
 .header {
     width: 100%;
-    height: 4rem;
-    background-color: var(--color-grey-200);
+    height: 4.5rem;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 8%;
-   
+    background-color: var(--color-header-bg);
 }
 
 .header ul {
@@ -19,8 +19,16 @@
 
 .header li {
     margin: 0 var(--size-2);
+    color: var(--color-primary-text);
+    
 }
 
 .header p{
     margin:0;
+    color: var(--color-primary-text);
+}
+
+.header button{
+ 
+    padding: 0.25rem .5rem;
 }

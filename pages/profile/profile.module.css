@@ -1,0 +1,78 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.profile .card{
+    width: max-content;
+    max-width: 500px;
+    
+    border: 1px solid var(--color-accent);
+    border-radius: var(--border-radius-2);
+}
+
+.profile h2{
+    color: var(--color-primary-text);
+    opacity: .9;
+    margin:0;
+    padding: 5px 15px;
+    border:1px solid var(--color-card-bg);
+    background-color: var(--color-card-bg);
+    border-top-left-radius: var(--border-radius-2);
+    border-top-right-radius: var(--border-radius-2);
+}
+
+.profile form{
+    padding:0;
+}
+
+.profile form p{
+    margin:1rem;
+    padding:0.25rem;
+    color:var(--color-primary-text)
+}
+
+.profile button{
+    width: 50%;
+    border-radius:0;
+    border:1px solid var(--color-accent);    
+    background-color: var(--color-card-bg);
+    color: var(--color-primary-text)
+}
+
+.profile input{
+    margin: 1rem;
+    margin-bottom:0;
+    height: 1.5rem;
+    
+}
+
+button.right{
+    border:1px solid var(--color-card-bg);
+    border-top: 1px solid var(--color-accent);
+    border-bottom-right-radius: var(--border-radius-2);
+    border-left-color: var(--color-accent);
+}
+
+button.right:hover, button.left:hover, button.edit:hover{
+    background-color: var(--color-accent);
+    color: var(--color-light-text);
+    border-color:var(--color-accent);
+}
+
+button.edit{
+    width:100%;
+    border-bottom-left-radius: var(--border-radius-2);
+    border-bottom-right-radius: var(--border-radius-2);
+    border-color:var(--color-card-bg);
+    border-top: 1px solid var(--color-accent);
+}
+
+button.left{
+    border:1px solid var(--color-card-bg);
+    border-top: 1px solid var(--color-accent);
+    border-bottom-left-radius: var(--border-radius-2);
+}

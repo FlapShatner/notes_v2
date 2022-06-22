@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { MdClose } from 'react-icons/md'
 import ReactDOM from 'react-dom'
 import classes from './modal.module.css'
 
@@ -19,7 +20,7 @@ export default function Modal({ show, onClose, children, title }) {
       <div className={classes.modal}>
         <header>
           <a href='#' onClick={handleClick}>
-            close
+            <MdClose />
           </a>
         </header>
         {title && <h2>{title}</h2>}

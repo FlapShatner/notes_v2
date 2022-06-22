@@ -6,10 +6,11 @@ export default async function handler(req, res) {
     try {
       await connectDb()
 
-      const { noteTitle, content, bid } = req.body
+      const { noteTitle, content, bid, nid } = req.body
       const note = new Note({
         noteTitle: noteTitle,
         content: content,
+        nid: nid,
       })
 
       const result = await Book.findOne({ bid: bid })

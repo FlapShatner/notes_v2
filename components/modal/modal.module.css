@@ -13,13 +13,27 @@
 
 
 .modal{
-    background: white;
-    min-width: 300px;
-    max-width: 400px;
+    background: hsla(357.87,100%,61.37%, 0.8);
+    border:2px solid hsl(357.72,100%,30.98%);
+    width: 250px;    
     height: max-content;
-    border-radius: 15px;
-    padding: 15px;
+    border-radius: var(--border-radius-2);
+    padding: 0px;
 }
+
+.modal a{
+    color: var(--color-button-text);
+    text-decoration: none;
+    padding:0.25rem;
+    padding-bottom:0;
+    background-color:hsl(357.87,100%,61.37%) ;
+    border: 1px solid hsl(357.72,100%,30.98%);
+    border-top:none;
+    border-right:none;
+    border-top-right-radius: var(--border-radius-2);
+    border-bottom-left-radius: var(--border-radius-2);
+}
+
 
 .modal header{
     display: flex;
