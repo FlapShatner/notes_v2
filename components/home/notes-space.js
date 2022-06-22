@@ -24,6 +24,21 @@ export default function NotesSpace(props) {
     }
   }
 
+  async function deleteBook(id) {
+    const response = await fetch(`/api/books/`, {
+      method: 'DELETE',
+      body: JSON.stringify({ bid: id }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      setBooksArray(booksArray.filter((book) => book.bid !== id))
+    } else {
+      console.log(response)
+    }
+  }
+
   return (
     <section className={classes.container}>
       <CreateBook handleSubmit={handleSubmit} />
@@ -35,6 +50,7 @@ export default function NotesSpace(props) {
             id={book.bid}
             title={book.title}
             notes={book.notes.length}
+            deleteBook={deleteBook}
           />
         ))}
       </ul>

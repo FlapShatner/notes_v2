@@ -20,5 +20,19 @@
 }
 
 .bookItem h2{
-    color:var(--color-primary-text)
+    color:var(--color-primary-text);
+    margin: 0;
+    padding: 10px 0;
+}
+
+.bookItem button{      
+        font-size: small;
+        height:20px;
+        width:55px;
+        margin-right: 5px; 
+}
+
+.bookItem .delete{  
+    height: max-content;
+    padding:15px 0 20px;
 }

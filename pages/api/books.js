@@ -26,6 +26,17 @@ export default async function handler(req, res) {
       console.log(err)
       res.status(500).json({ message: 'Error saving book' })
     }
+  } else if (req.method === 'DELETE') {
+    try {
+      await connectDb()
+      const { bid } = req.body
+      const book = await Book.findOneAndDelete({ bid: bid })
+      res.statusCode = 200
+      res.end(JSON.stringify(book))
+    } catch (error) {
+      console.log(error)
+      res.status(500).json({ message: 'Error deleting book' })
+    }
   } else if (req.method === 'GET') {
     res.status(200).json({ message: 'Get request successful' })
   }
