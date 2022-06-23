@@ -33,5 +33,5 @@ export default NextAuth({
       },
     }),
   ],
-  secret: 'secretsecret',
+  secret: process.env.JWT_SECRET,
 })

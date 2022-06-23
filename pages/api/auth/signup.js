@@ -7,8 +7,8 @@ async function handler(req, res) {
 
     const { email, password } = data
 
-    if (!email || !email.includes('@') || !password || password.trim().length < 7) {
-      res.status(422).json({ message: 'Invalid credentials - password should be at least 7 characters long' })
+    if (!email || !email.includes('@') || !password || password.trim().length < 6) {
+      res.status(422).json({ message: 'Invalid credentials - password should be at least 6 characters long' })
       return
     }
 

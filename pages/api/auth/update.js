@@ -4,7 +4,7 @@ import { getSession } from 'next-auth/react'
 async function handler(req, res) {
   if (req.method === 'PUT') {
     const data = req.body
-    const { email, name } = data
+    const { name } = data
     const session = await getSession({ req: req })
     const userId = session.user.email
 
