@@ -83,7 +83,7 @@ button {
   color:var(--color-button-text);
   border:none;
   border-radius: var(--border-radius-1);
-
+  -webkit-appearance: none;
 }
 
 input, textarea{
