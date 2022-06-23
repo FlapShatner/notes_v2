@@ -20,7 +20,7 @@
 }
 
 .bookItem h2{
-    color:var(--color-primary-text);
+    color:var(--color-primary-text);    
     margin: 0;
     padding: 10px 0;
 }
@@ -35,4 +35,10 @@
 .bookItem .delete{  
     height: max-content;
     padding:15px 0 20px;
+}
+
+@media (max-width: 768px) {
+   .bookItem h2{
+         font-size: 1.2rem;
+   }
 }

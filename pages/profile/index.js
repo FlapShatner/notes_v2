@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { getSession } from 'next-auth/react'
+import Link from 'next/link'
 import { connectDb } from '../../helpers/db'
 import classes from './profile.module.css'
 
@@ -44,6 +45,11 @@ export default function Profile(props) {
 
   return (
     <section className={classes.profile}>
+      <div className={classes.buttonDiv}>
+        <Link href='/'>
+          <button className={classes.back}>Back</button>
+        </Link>
+      </div>
       <div className={classes.card}>
         <h2>Your Info</h2>
         <form onSubmit={handleSubmit}>

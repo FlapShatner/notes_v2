@@ -77,3 +77,8 @@ button.close{
     background-color: var(--color-create-bg);
 }
 
+@media (max-width: 768px) {
+    .collapsed{
+        width:150%;
+    }
+}

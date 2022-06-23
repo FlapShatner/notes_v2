@@ -89,7 +89,7 @@ button {
 input, textarea{
   padding: 0.25rem;
   border: 1px solid var(--color-accent);
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-1);
   background: var(--color-input-bg);
 }
 

@@ -3,3 +3,9 @@
     font-weight: semi-bold;
     color: var(--color-primary-text);
 }
+
+@media (max-width: 600px) {
+    .logo {
+        font-size: var(--size-6);
+    }
+}
