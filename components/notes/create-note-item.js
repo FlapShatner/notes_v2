@@ -1,6 +1,6 @@
 import classes from './create-note-item.module.css'
 import { useState } from 'react'
-import { BsChevronCompactUp } from 'react-icons/bs'
+import { BsChevronCompactUp, BsChevronCompactDown } from 'react-icons/bs'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function CreateNoteItem(props) {
@@ -70,9 +70,12 @@ export default function CreateNoteItem(props) {
 
   return (
     <section className={classes.collapsed}>
-      <button type='button' onClick={toggleExpand}>
-        New note
-      </button>
+      <div className={classes.create} onClick={toggleExpand}>
+        <span>New note</span>
+      </div>
+      <div className={classes.chevron} onClick={toggleExpand}>
+        <BsChevronCompactDown />
+      </div>
     </section>
   )
 }

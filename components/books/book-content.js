@@ -41,26 +41,29 @@ export default function BookContent(props) {
       <Link href='/'>
         <button>Back</button>
       </Link>
-      <header>
-        <div>
-          <h2>{title}</h2>
-        </div>
-      </header>
-      <CreateNoteItem bid={bid} handleSubmit={submitData} />
+      <div className={classes.outline}>
+        <header>
+          <div>
+            <h2>{title}</h2>
+          </div>
+        </header>
+        <CreateNoteItem bid={bid} handleSubmit={submitData} />
 
-      <ul className={classes.notes}>
-        {notesArray.map((note) => (
-          <NoteItem
-            bid={bid}
-            deleteNote={deleteNote}
-            noteTitle={note.noteTitle}
-            content={note.content}
-            _id={note._id}
-            nid={note.nid}
-            key={note._id || uuidv4()}
-          />
-        ))}
-      </ul>
+        <ul className={classes.notes}>
+          {notesArray.map((note) => (
+            <NoteItem
+              bid={bid}
+              deleteNote={deleteNote}
+              noteTitle={note.noteTitle}
+              content={note.content}
+              _id={note._id}
+              nid={note.nid}
+              key={note._id || uuidv4()}
+            />
+          ))}
+        </ul>
+        <div className={classes.footer} />
+      </div>
     </section>
   )
 }

@@ -15,9 +15,18 @@ export default function Modal({ show, onClose, children, title }) {
     onClose()
   }
 
+  function handleOutsideClick(e) {
+    e.stopPropagation()
+    onClose()
+  }
+
+  function handleModalClick(e) {
+    e.stopPropagation()
+  }
+
   const modalContent = show && (
-    <div className={classes.overlay}>
-      <div className={classes.modal}>
+    <div onClick={handleOutsideClick} className={classes.overlay}>
+      <div onClick={handleModalClick} className={classes.modal}>
         <header>
           <a href='#' onClick={handleClick}>
             <MdClose />
